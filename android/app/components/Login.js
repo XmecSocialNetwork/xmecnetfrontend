@@ -32,7 +32,7 @@ class Login extends React.Component {
   }
   componentDidMount(){
 
-                      fetch(url+"/v1/isloggedin", {
+                /*      fetch(url+"/v1/isloggedin", {
                            method: 'POST',
 
                            body: JSON.stringify({}),
@@ -49,8 +49,8 @@ class Login extends React.Component {
                             console.log('There has been a problem with your fetch operation: ' + error.message);
                              // ADD THIS THROW error
                               throw error;
-                            });
-
+                          });  */
+                  this.props.nest("Profile");
 
 
       }

@@ -197,12 +197,12 @@ class Mainpart extends React.Component {
             </ImageView>
 
             <TouchableOpacity style={{
-                  height:25,
-                  width:25,
+                  height:30,
+                  width:30,
                   borderRadius:130,
                   position:"absolute",
-                  top:vh*24,
-                  left:vw*55,
+                  top:vh*25,
+                  left:vw*57,
                   backgroundColor:"rgba(64,64,64,0.8)",
                   justifyContent:"center",
                   alignItems:"center"

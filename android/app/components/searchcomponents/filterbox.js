@@ -30,7 +30,7 @@ import {
                         label="Passout Year(eg:2006)"
                         labelColor="rgba(0,0,0,.56)"
                         labelActiveColor="#90CAF9"
-                        //underlineColor="#fff"
+                        underlineColor="#fff"
                         underlineActiveColor="#90CAF9"
                         keyboardType="numeric"
                         autoCorrect={false}

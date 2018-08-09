@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import Iconmc from 'react-native-vector-icons/MaterialCommunityIcons'
 import SearchBar from 'react-native-material-design-searchbar'
 import Suggestorprofile from "./searchcomponents/Suggestorprofile.js"
-import Filter from "./searchcomponents/filterbox.js"
+import Filter from "./searchcomponents/filter.js"
 import DismissKeyboard from 'dismissKeyboard';
 import {connect} from "react-redux";
 import Display from 'react-native-display';
@@ -24,26 +24,27 @@ class Search extends React.Component {
          tabBarIcon: () => <Icon size={24} name="search"  />
       }
 
-      search = (text) => {
-                    //console.log()
-                this.props.update("searchchange",text)
-                 fetch('http://'+url+'/v1/search', {
-                     method: 'POST',
-                     body: JSON.stringify({
-                        "string":text,
-                        "branch":this.props.Searchstate.branch,
-                        "year":this.props.Searchstate.year,
-                        })
-                  }).then((response) => response.json())
-                  .then ((res) =>{
-                       console.log(res)
-
-                      });
-
-      }
-
-
       render() {
+          search = (text) => {
+                        console.log(text)
+                        this.props.update("searchchange",text)
+                        console.log(this.props.Searchstate.value)
+
+                    /* fetch('http://'+url+'/v1/search', {
+                         method: 'POST',
+                         body: JSON.stringify({
+                            "string":this.props.Searchstate.value,
+                            "branch":this.props.Searchstate.branch,
+                            "year":this.props.Searchstate.year,
+                            })
+                      }).then((response) => response.json())
+                      .then ((res) =>{
+                           console.log(res)
+
+                          });  */
+
+          }
+
         return(
             <TouchableWithoutFeedback onPress={()=>{DismissKeyboard()}}>
             <View style={{
@@ -61,9 +62,23 @@ class Search extends React.Component {
                       <View style={{flex:1,
                                   backgroundColor:"#54AFF5"}} >
                       <SearchBar
-                        onSearchChange={(text)=>{
+                        onSearchChange={(text) =>{
+                            console.log(text)
+                            this.props.update("searchchange",text)
+                            /* fetch('http://'+url+'/v1/search', {
+                                 method: 'POST',
+                                 body: JSON.stringify({
+                                    "string":this.props.Searchstate.value,
+                                    "branch":this.props.Searchstate.branch,
+                                    "year":this.props.Searchstate.year,
+                                    })
+                              }).then((response) => response.json())
+                              .then ((res) =>{
+                                   console.log(res)
 
-                            this.search(text)
+                                  });  */
+
+
                         }}
 
                         height={40}
@@ -121,9 +136,7 @@ class Search extends React.Component {
                          </Display>
                       </View>
                       <Display enable={this.props.Searchstate.filter} >
-                      <View>
-                      <Filter searchclick={this.search}></Filter>
-                      </View>
+                      <Filter ></Filter>
                       </Display>
                     <ScrollView>
                       <Suggestorprofile
