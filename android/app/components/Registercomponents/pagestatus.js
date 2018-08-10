@@ -30,28 +30,8 @@ class PageStatus extends React.Component {
                                            switch (this.props.regdetails.reg) {
                                                case "reg1":{
                                                    if(this.props.regdetails.name==null||this.props.regdetails.email==null||this.props.regdetails.branch==null||this.props.regdetails.dob_date==null||this.props.regdetails.dob_month==null||this.props.regdetails.dob_year==null)
-                                                   {    fetch(url+'/v1/trying', {
-                                                        method: 'POST',
-                                                        body: JSON.stringify({
-                                                                "email":"hai",
-                                                            }),
-                                                        }).then((res) =>
-                                                            res.json())
-                                                        .then((responseJson) => {
-                                                               console.log(responseJson)
-                                                        })
-
-                                                    /*    fetch('http://'+url+'/v1/trying2', {
-                                                             method: 'POST',
-                                                             body: JSON.stringify({
-                                                                     "email":"hai",
-                                                                 }),
-                                                             }).then((res) =>
-                                                                 res.json())
-                                                             .then((responseJson) => {
-                                                                    console.log(responseJson)
-                                                             })                                   */
-                                                      // alert("Field not complete")
+                                                   {
+                                                        alert("Field not complete")
                                                         payload={reg:"reg1"}
                                                    }
                                                    else
@@ -186,7 +166,7 @@ class PageStatus extends React.Component {
 
                                   }}>
                                   <Text style={{
-                                     
+
                                       fontSize:21,
                                       color:"#fff"
                                   }}>Next</Text>
